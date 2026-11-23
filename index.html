@@ -1,0 +1,254 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HOUSSS</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600&display=swap">
+</head><body style="margin:0"><style>
+/* Layout: render a pantalla ancha arriba, ficha de medidas tipo plano, secuencia de armado en tira, galería y contacto. */
+:root{
+  --bg:#f3f1ea; --surface:#fbfaf6; --fg:#1d211b; --muted:#5d6457; --line:#d6d3c6;
+  --accent:#b8660f; --accent-fg:#fff; --night:#171b15; --night-fg:#f1eee3; --lamp:#f2b25c;
+  --display:"Bebas Neue","Barlow Condensed",Impact,sans-serif;
+  --cond:"Barlow Condensed","Arial Narrow",sans-serif;
+  --body:"Barlow","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#141712; --surface:#1c2019; --fg:#ece9de; --muted:#a3a895; --line:#343a2e;
+  --accent:#f2b25c; --accent-fg:#1a1508; --night:#0d100b; --night-fg:#f1eee3; --lamp:#f2b25c; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#141712; --surface:#1c2019; --fg:#ece9de; --muted:#a3a895; --line:#343a2e;
+  --accent:#f2b25c; --accent-fg:#1a1508; --night:#0d100b; --night-fg:#f1eee3; --lamp:#f2b25c; color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.55;margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.02em;line-height:1;margin:0;text-wrap:balance}
+h2{font-size:clamp(2.2rem,5vw,3.4rem)}
+p{margin:0}
+.eyebrow{font-family:var(--cond);font-weight:600;text-transform:uppercase;letter-spacing:.16em;font-size:.85rem;color:var(--accent)}
+section{padding-block:clamp(48px,8vw,88px)}
+.lead{max-width:62ch;color:var(--muted);font-size:1.1rem}
+.head{display:flex;flex-direction:column;gap:14px;margin-bottom:36px}
+
+/* Barra */
+.bar{background:var(--night);color:var(--night-fg)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px;flex-wrap:wrap}
+.logo{font-family:var(--display);font-size:1.7rem;letter-spacing:.14em}
+.bar nav{display:flex;gap:22px;flex-wrap:wrap;font-family:var(--cond);font-weight:500;text-transform:uppercase;letter-spacing:.12em;font-size:.9rem}
+.bar a{color:var(--night-fg);text-decoration:none;opacity:.8}
+.bar a:hover,.bar a:focus-visible{opacity:1;color:var(--lamp)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--lamp);outline-offset:3px}
+
+/* Hero */
+.hero{background:var(--night);color:var(--night-fg);position:relative}
+.hero img{display:block;width:100%;height:clamp(440px,56vw,640px);object-fit:cover;object-position:55% 45%}
+.hero .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,16,11,.15) 30%,rgba(13,16,11,.92) 100%)}
+.hero .txt{position:absolute;left:0;right:0;bottom:0}
+.hero .txt .wrap{padding-block:0 clamp(24px,4vw,44px);display:flex;flex-direction:column;gap:12px}
+.hero .eyebrow{color:var(--lamp)}
+h1{font-size:clamp(2.6rem,8vw,6rem);max-width:14ch}
+.hero p{max-width:52ch;font-size:clamp(1rem,1.6vw,1.2rem);opacity:.92}
+
+/* Ficha */
+.ficha{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.ficha div{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 20px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.ficha b{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,4.6vw,3.4rem);line-height:1;font-variant-numeric:tabular-nums}
+.ficha b small{font-size:.45em;letter-spacing:.06em;margin-left:.15em;color:var(--muted)}
+.ficha span{font-family:var(--cond);text-transform:uppercase;letter-spacing:.12em;font-size:.85rem;color:var(--muted)}
+.nota{margin-top:14px;font-size:.9rem;color:var(--muted);max-width:75ch}
+
+/* Problema */
+.dos{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,64px);align-items:start}
+.dos > *{min-width:0}
+.cifra{font-family:var(--display);font-size:clamp(3.4rem,9vw,7rem);line-height:.9;color:var(--accent)}
+.cifra + p{margin-top:10px;color:var(--muted);max-width:36ch}
+.cifra + p a{color:inherit}
+.prosa{display:flex;flex-direction:column;gap:16px;max-width:60ch}
+
+/* Sistema */
+.band{background:var(--surface);border-block:1px solid var(--line)}
+.sis{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(24px,4vw,56px);align-items:center}
+.sis > *{min-width:0}
+.sis img{display:block;width:100%;border:1px solid var(--line);background:#fff}
+.lista{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.lista li{padding:16px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:9.5rem 1fr;gap:14px}
+.lista li:first-child{border-top:1px solid var(--line)}
+.lista b{font-family:var(--cond);font-weight:600;text-transform:uppercase;letter-spacing:.1em;font-size:.92rem}
+.lista span{color:var(--muted)}
+
+/* Armado */
+.pasos{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.pasos li{min-width:0;display:flex;flex-direction:column;gap:10px}
+.pasos img{display:block;width:100%;aspect-ratio:900/620;object-fit:cover;border:1px solid var(--line);background:#e6e7e2}
+.pasos .n{font-family:var(--display);font-size:1.5rem;color:var(--accent);line-height:1}
+.pasos h3{font-family:var(--cond);font-weight:600;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;line-height:1.2}
+.pasos .t{font-variant-numeric:tabular-nums;color:var(--muted);font-size:.95rem}
+.total{margin-top:28px;padding-top:18px;border-top:2px solid var(--fg);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:baseline}
+.total b{font-family:var(--display);font-weight:400;font-size:2rem;letter-spacing:.03em}
+.total span{color:var(--muted);max-width:60ch}
+
+/* Galería */
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gal figure{margin:0;min-width:0}
+.gal img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.gal figcaption{font-family:var(--cond);text-transform:uppercase;letter-spacing:.12em;font-size:.8rem;color:var(--muted);margin-top:8px}
+
+/* Estado */
+.estado{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,64px)}
+.estado > div{min-width:0}
+.estado h3{font-family:var(--cond);font-weight:600;text-transform:uppercase;letter-spacing:.12em;font-size:1rem;margin-bottom:10px}
+.estado ul{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:8px;color:var(--muted)}
+
+/* Contacto */
+.cta{background:var(--night);color:var(--night-fg)}
+.cta .wrap{display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+.cta .eyebrow{color:var(--lamp)}
+.cta p{max-width:56ch;opacity:.85}
+.mail{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.mail code{font-family:var(--body);font-size:clamp(1.15rem,3vw,1.6rem);font-weight:500;user-select:all;overflow-wrap:anywhere}
+button{font:600 .95rem var(--cond);text-transform:uppercase;letter-spacing:.12em;background:var(--lamp);color:#1a1508;border:0;padding:11px 18px;cursor:pointer}
+button:hover{filter:brightness(1.08)}
+footer{background:var(--night);color:var(--night-fg);border-top:1px solid rgba(255,255,255,.12);font-size:.88rem}
+footer .wrap{padding-block:20px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;opacity:.7}
+
+@media (max-width:820px){
+  .ficha{grid-template-columns:repeat(2,1fr)}
+  .dos,.sis,.estado{grid-template-columns:1fr}
+  .pasos{grid-template-columns:repeat(2,1fr)}
+  .gal{grid-template-columns:1fr}
+  .lista li{grid-template-columns:1fr;gap:4px}
+  .bar nav{gap:14px;font-size:.8rem}
+}
+</style>
+
+<header class="bar"><div class="wrap">
+  <div class="logo">HOUSSS</div>
+  <nav aria-label="Secciones">
+    <a href="#sistema">Sistema</a><a href="#armado">Armado</a><a href="#galeria">Galería</a><a href="#contacto">Contacto</a>
+  </nav>
+</div></header>
+
+<div class="hero">
+  <img src="hero.jpg" alt="Render de la HOUSSS iluminada sobre la terraza de una casa, al atardecer">
+  <div class="shade"></div>
+  <div class="txt"><div class="wrap">
+    <span class="eyebrow">Enjoy the world at home</span>
+    <h1>Una casa que se arma en un día</h1>
+    <p>20 m², menos de una tonelada. Llega desarmada en un camión, se arma con llave allen y se vuelve a desarmar para llevarla a donde quieras.</p>
+  </div></div>
+</div>
+
+<section><div class="wrap">
+  <div class="ficha">
+    <div><b>5 × 4<small>m</small></b><span>Planta, 20 m²</span></div>
+    <div><b>≈ 966<small>kg</small></b><span>Peso de la casa</span></div>
+    <div><b>1.099</b><span>Piezas, tornillería incluida</span></div>
+    <div><b>1<small>día</small></b><span>Armado con 3 personas</span></div>
+  </div>
+  <p class="nota">Peso teórico de diseño (±5 %), sin deck ni muebles. El tiempo de armado es una estimación del manual: 12 h 10 min con tres personas, todavía sin cronometrar en una unidad real.</p>
+</div></section>
+
+<section class="band"><div class="wrap dos">
+  <div>
+    <div class="cifra">2.800 millones</div>
+    <p>de personas no tienen una vivienda adecuada, según <a href="https://unhabitat.org/news/29-may-2025/un-habitat-assembly-opens-with-call-for-urgent-action-on-global-housing-crisis">ONU-Hábitat</a>.</p>
+  </div>
+  <div class="prosa">
+    <span class="eyebrow">El problema</span>
+    <h2>El modelo de siempre está roto</h2>
+    <p>Una casa convencional tarda meses en construirse y años de deuda en pagarse. Queda atada a un terreno: si te mudás, la casa no viene con vos.</p>
+    <p>HOUSSS propone otra cosa. Una vivienda chica, liviana y de piezas repetidas, que se fabrica en taller, viaja plana y se monta sin obra húmeda ni herramientas especiales.</p>
+  </div>
+</div></section>
+
+<section id="sistema"><div class="wrap">
+  <div class="head">
+    <span class="eyebrow">El sistema</span>
+    <h2>Paneles, módulos y una llave allen</h2>
+    <p class="lead">Todo se une con bulones allen sobre tuercas remachables y tornillos mariposa. Nada se pega ni se suelda en obra, por eso se puede desarmar y volver a armar.</p>
+  </div>
+  <div class="sis">
+    <img src="alambre.jpg" alt="Dibujo de alambre de la HOUSSS con todas sus piezas">
+    <ul class="lista">
+      <li><b>Apoyos</b><span>14 patas niveladoras con base de goma. No perforan la losa ni el terreno.</span></li>
+      <li><b>Piso</b><span>Bastidor de tubo de aluminio, aislación XPS de 30 mm y fenólico de 12 mm.</span></li>
+      <li><b>Pared y techo</b><span>Paneles PIR de cámara frigorífica de 50 mm, machihembrados. Aíslan y se sostienen solos.</span></li>
+      <li><b>Frente y laterales</b><span>12 módulos de marco de aluminio y policarbonato compacto de 3 mm, más la puerta. Vienen armados de fábrica.</span></li>
+      <li><b>Interior</b><span>Baño con ducha, cocina, agua y electricidad con conexiones rápidas.</span></li>
+      <li><b>Herramientas</b><span>Llaves allen 4, 5 y 6, maza de goma y nivel. Una llave fija 24 para las patas.</span></li>
+    </ul>
+  </div>
+</div></section>
+
+<section id="armado" class="band"><div class="wrap">
+  <div class="head">
+    <span class="eyebrow">El armado</span>
+    <h2>De la base al interior, en cinco etapas</h2>
+    <p class="lead">El manual lo detalla en 21 pasos ilustrados, con piezas, herramientas y tiempo de cada uno.</p>
+  </div>
+  <ol class="pasos">
+    <li><img src="s08.jpg" alt="Bastidor de aluminio con el piso colocado"><span class="n">1</span><h3>Base y piso</h3><span class="t">4 h 40 min</span></li>
+    <li><img src="s10.jpg" alt="Pared del fondo de paneles PIR"><span class="n">2</span><h3>Pared del fondo</h3><span class="t">45 min</span></li>
+    <li><img src="s14.jpg" alt="Módulos de policarbonato y vigas superiores colocados"><span class="n">3</span><h3>Módulos y vigas</h3><span class="t">2 h</span></li>
+    <li><img src="s15.jpg" alt="Paneles de techo colocados"><span class="n">4</span><h3>Techo y canaleta</h3><span class="t">1 h 30 min</span></li>
+    <li><img src="s20.jpg" alt="Interior con baño y cocina equipados"><span class="n">5</span><h3>Interior y conexiones</h3><span class="t">3 h 15 min</span></li>
+  </ol>
+  <div class="total"><b>Total: 12 h 10 min</b><span>Estimado con tres personas. Electricidad y agua las conecta un profesional.</span></div>
+</div></section>
+
+<section id="galeria"><div class="wrap">
+  <div class="head">
+    <span class="eyebrow">Galería</span>
+    <h2>En una terraza o donde la lleves</h2>
+    <p class="lead">La primera versión se apoya sobre una terraza y toma agua, luz y desagüe de la casa principal. Las imágenes son renders del proyecto en distintos escenarios.</p>
+  </div>
+  <div class="gal">
+    <figure><img src="tarde.jpg" alt="Render de la casa terminada a la tarde"><figcaption>Tarde</figcaption></figure>
+    <figure><img src="atardecer.jpg" alt="Render de la casa al atardecer"><figcaption>Atardecer</figcaption></figure>
+    <figure><img src="noche.jpg" alt="Render de la casa iluminada de noche"><figcaption>Noche</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <div class="head">
+    <span class="eyebrow">Estado del proyecto</span>
+    <h2>Dónde estamos hoy</h2>
+  </div>
+  <div class="estado">
+    <div>
+      <h3>Hecho</h3>
+      <ul>
+        <li>Paneles PIR de pared y techo comprados.</li>
+        <li>Diseño completo, pieza por pieza, con inventario y pesos.</li>
+        <li>Manual de armado ilustrado de 21 pasos.</li>
+        <li>Lista de compras con precios para lo que falta.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Falta</h3>
+      <ul>
+        <li>Fabricar los módulos de aluminio y policarbonato.</li>
+        <li>Armar la primera unidad completa y cronometrarla.</li>
+        <li>Cálculo firmado por un ingeniero: viento, anclaje y carga sobre la losa.</li>
+        <li>Versión autónoma, con energía y agua propias.</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="contacto" class="cta"><div class="wrap">
+  <span class="eyebrow">Contacto</span>
+  <h2>La revolución del hogar</h2>
+  <p>Si querés saber más del proyecto, sumarte o reservar una de las primeras unidades, escribinos.</p>
+  <div class="mail"><code id="mail">info@deltaforcevision.com</code><button type="button" id="copiar">Copiar</button></div>
+</div></section>
+
+<footer><div class="wrap"><span>HOUSSS · housss.com · Buenos Aires, Argentina</span><span>Enjoy the world at home</span></div></footer>
+
+<script>
+document.getElementById('copiar').addEventListener('click',function(){
+  var b=this,t=document.getElementById('mail');
+  var ok=function(){b.textContent='Copiado';setTimeout(function(){b.textContent='Copiar'},1800)};
+  var sel=function(){var r=document.createRange();r.selectNodeContents(t);var s=getSelection();s.removeAllRanges();s.addRange(r)};
+  try{navigator.clipboard.writeText(t.textContent).then(ok,sel)}catch(e){sel()}
+});
+</script>
+</body></html>
