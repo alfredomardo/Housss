@@ -90,12 +90,6 @@ h1{font-size:clamp(2.6rem,8vw,6rem);max-width:14ch}
 .gal img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
 .gal figcaption{font-family:var(--cond);text-transform:uppercase;letter-spacing:.12em;font-size:.8rem;color:var(--muted);margin-top:8px}
 
-/* Estado */
-.estado{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,64px)}
-.estado > div{min-width:0}
-.estado h3{font-family:var(--cond);font-weight:600;text-transform:uppercase;letter-spacing:.12em;font-size:1rem;margin-bottom:10px}
-.estado ul{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:8px;color:var(--muted)}
-
 /* Contacto */
 .cta{background:var(--night);color:var(--night-fg)}
 .cta .wrap{display:flex;flex-direction:column;gap:18px;align-items:flex-start}
@@ -110,7 +104,7 @@ footer .wrap{padding-block:20px;display:flex;justify-content:space-between;gap:1
 
 @media (max-width:820px){
   .ficha{grid-template-columns:repeat(2,1fr)}
-  .dos,.sis,.estado{grid-template-columns:1fr}
+  .dos,.sis{grid-template-columns:1fr}
   .pasos{grid-template-columns:repeat(2,1fr)}
   .gal{grid-template-columns:1fr}
   .lista li{grid-template-columns:1fr;gap:4px}
@@ -206,32 +200,6 @@ footer .wrap{padding-block:20px;display:flex;justify-content:space-between;gap:1
   </div>
 </div></section>
 
-<section class="band"><div class="wrap">
-  <div class="head">
-    <span class="eyebrow">Project status</span>
-    <h2>Where we are today</h2>
-  </div>
-  <div class="estado">
-    <div>
-      <h3>Done</h3>
-      <ul>
-        <li>PIR wall and roof panels purchased.</li>
-        <li>Full design, part by part, with inventory and weights.</li>
-        <li>Illustrated 21-step assembly manual.</li>
-        <li>Priced shopping list for what is still missing.</li>
-      </ul>
-    </div>
-    <div>
-      <h3>To do</h3>
-      <ul>
-        <li>Manufacture the aluminium and polycarbonate modules.</li>
-        <li>Build the first complete unit.</li>
-        <li>Calculations signed off by an engineer: wind, anchoring and load on the slab.</li>
-        <li>Off-grid version, with its own power and water.</li>
-      </ul>
-    </div>
-  </div>
-</div></section>
 
 <section id="contacto" class="cta"><div class="wrap">
   <span class="eyebrow">Contact</span>
